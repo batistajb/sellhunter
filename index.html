@@ -1,0 +1,802 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sell Hunter — Do produto viral ao TikTok em 10 minutos</title>
+  <meta name="description" content="Sell Hunter automatiza toda a criação de vídeo para afiliados do TikTok Shop — do monitoramento de tendências à publicação. Você só aprova.">
+  <meta name="robots" content="index, follow">
+
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://sellhunter.com.br">
+  <meta property="og:title" content="Sell Hunter — Do produto viral ao TikTok em 10 minutos">
+  <meta property="og:description" content="Plataforma SaaS para afiliados do TikTok Shop. Do produto viral ao vídeo publicado em menos de 10 minutos, sem abrir nenhuma outra ferramenta.">
+  <meta property="og:site_name" content="Sell Hunter">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Sell Hunter — Do produto viral ao TikTok em 10 minutos">
+  <meta name="twitter:description" content="Plataforma SaaS para afiliados do TikTok Shop. Do produto viral ao vídeo publicado em menos de 10 minutos.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --bg:   #05070A;
+      --bg2:  #0A0C10;
+      --sf:   #12151C;
+      --el:   #1A1F29;
+      --bd:   #262D3A;
+      --tx:   #F2F5F9;
+      --t2:   #9AA4B2;
+      --t3:   #5C6675;
+      --volt: #C8F135;
+      --vdim: rgba(200,241,53,.12);
+      --onv:  #0A0C10;
+      --ok:   #3DD68C;
+      --err:  #FF5C5C;
+      --r:    12px;
+      --rlg:  20px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--tx);
+      font-family: Inter, system-ui, sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    h1, h2, h3, h4 { font-family: 'Space Grotesk', sans-serif; line-height: 1.1; }
+
+    /* ── Layout ── */
+    .wrap { max-width: 1120px; margin: 0 auto; padding: 0 24px; }
+    section { padding: 96px 0; }
+
+    /* ── Tag ── */
+    .tag {
+      display: inline-flex; align-items: center; gap: 6px;
+      padding: 4px 14px; border-radius: 100px;
+      font: 600 11px/1 'Space Grotesk', sans-serif;
+      letter-spacing: .07em; text-transform: uppercase;
+      background: var(--vdim); color: var(--volt);
+      border: 1px solid rgba(200,241,53,.2);
+    }
+
+    /* ── Buttons ── */
+    .btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 12px 22px; border-radius: 8px; border: none; cursor: pointer;
+      font: 600 14px/1 'Space Grotesk', sans-serif;
+      text-decoration: none;
+      transition: opacity .15s, transform .15s, border-color .15s, color .15s;
+    }
+    .btn:hover  { opacity: .88; transform: translateY(-1px); }
+    .btn:active { transform: none; }
+
+    .btn-volt    { background: var(--volt); color: var(--onv); }
+    .btn-outline { background: transparent; color: var(--tx); border: 1px solid var(--bd); }
+    .btn-outline:hover { border-color: var(--volt); color: var(--volt); opacity: 1; }
+    .btn-lg { padding: 15px 28px; font-size: 15px; border-radius: 10px; }
+
+    /* ── Nav ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      height: 64px; padding: 0 24px;
+      background: rgba(5,7,10,.85);
+      backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(38,45,58,.5);
+      transition: border-color .2s;
+    }
+    .nav-inner {
+      max-width: 1120px; margin: 0 auto;
+      height: 100%; display: flex; align-items: center; justify-content: space-between;
+    }
+    .nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+    .nav-wm { font: 700 18px/1 'Space Grotesk', sans-serif; color: var(--tx); }
+    .nav-wm span { color: var(--volt); }
+
+    /* ── Hero ── */
+    #hero { padding-top: 164px; text-align: center; }
+
+    .hero-h1 {
+      font-size: clamp(38px, 6vw, 70px);
+      font-weight: 700; letter-spacing: -.025em;
+      max-width: 820px; margin: 20px auto 24px;
+    }
+    .hero-h1 .v { color: var(--volt); }
+
+    .hero-sub {
+      font-size: 18px; color: var(--t2);
+      max-width: 540px; margin: 0 auto 40px; line-height: 1.65;
+    }
+
+    .hero-form {
+      display: flex; gap: 8px;
+      max-width: 440px; margin: 0 auto 14px;
+    }
+    .hero-form input, .cta-form input {
+      flex: 1;
+      background: var(--sf); border: 1px solid var(--bd); border-radius: 10px;
+      padding: 14px 18px; color: var(--tx); font: 15px Inter, sans-serif;
+      outline: none; transition: border-color .15s;
+    }
+    .hero-form input:focus, .cta-form input:focus { border-color: var(--volt); }
+    .hero-form input::placeholder, .cta-form input::placeholder { color: var(--t3); }
+
+    .hero-note { font-size: 13px; color: var(--t3); }
+
+    /* Pipeline visual */
+    .pipeline-wrap { margin-top: 72px; }
+
+    .pipeline {
+      display: flex; align-items: stretch;
+      max-width: 900px; margin: 0 auto;
+      border: 1px solid var(--bd); border-radius: var(--rlg); overflow: hidden;
+    }
+
+    .pipe-step {
+      flex: 1; padding: 24px 16px;
+      display: flex; flex-direction: column; align-items: center; gap: 10px;
+      background: var(--sf); text-align: center;
+      border-right: 1px solid var(--bd);
+      transition: background .3s;
+    }
+    .pipe-step:last-child { border-right: none; }
+    .pipe-step.active {
+      background: linear-gradient(160deg, var(--sf) 0%, rgba(200,241,53,.06) 100%);
+    }
+
+    .pipe-ico {
+      width: 42px; height: 42px; border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      background: var(--el);
+    }
+    .pipe-step.active .pipe-ico { background: var(--vdim); }
+    .pipe-step.done   .pipe-ico { background: rgba(61,214,140,.12); }
+
+    .pipe-name { font: 600 13px/1 'Space Grotesk', sans-serif; color: var(--tx); }
+    .pipe-step.active .pipe-name { color: var(--volt); }
+    .pipe-step.done   .pipe-name { color: var(--ok); }
+    .pipe-desc { font-size: 11px; color: var(--t3); }
+
+    /* ── Problem ── */
+    #problema { background: var(--bg2); }
+
+    .prob-grid {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 64px; align-items: center; margin-top: 56px;
+    }
+
+    .tools-chaos { display: flex; flex-wrap: wrap; gap: 10px; }
+
+    .tool-chip {
+      background: var(--sf); border: 1px solid var(--bd);
+      border-radius: 8px; padding: 10px 14px;
+      font-size: 13px; font-weight: 500; color: var(--t2);
+      display: flex; align-items: center; gap: 8px;
+    }
+    .tool-chip.dim { color: var(--t3); border-style: dashed; }
+    .tool-dot { width: 6px; height: 6px; background: var(--t3); border-radius: 50%; }
+
+    .prob-h3 {
+      font-size: clamp(24px, 3.5vw, 36px);
+      font-weight: 700; letter-spacing: -.015em; margin-bottom: 16px;
+    }
+
+    .prob-p { color: var(--t2); line-height: 1.7; margin-bottom: 24px; }
+
+    .pain-list { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .pain-list li {
+      display: flex; align-items: flex-start; gap: 10px;
+      font-size: 14px; color: var(--t2);
+    }
+    .pain-list li::before { content: "×"; color: var(--err); font-weight: 700; flex-shrink: 0; }
+
+    /* ── How it works ── */
+    #como { text-align: center; }
+
+    .steps {
+      display: grid; grid-template-columns: repeat(4, 1fr);
+      gap: 2px; margin-top: 56px;
+      border-radius: var(--r); overflow: hidden;
+    }
+
+    .step {
+      background: var(--sf); border: 1px solid var(--bd);
+      padding: 32px 24px; text-align: left;
+    }
+    .steps .step:not(:last-child) { border-right: none; }
+
+    .step-num {
+      font: 600 10px/1 'Space Grotesk', sans-serif;
+      letter-spacing: .08em; color: var(--volt);
+      text-transform: uppercase; margin-bottom: 20px;
+    }
+    .step-ico {
+      width: 46px; height: 46px; border-radius: 12px; background: var(--el);
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 16px;
+    }
+    .step h4 { font-size: 15px; font-weight: 700; margin-bottom: 8px; }
+    .step p  { font-size: 13px; color: var(--t2); line-height: 1.6; }
+
+    /* ── Features ── */
+    #features { background: var(--bg2); text-align: center; }
+
+    .feat-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 1px; margin-top: 56px;
+      border: 1px solid var(--bd); border-radius: var(--rlg); overflow: hidden;
+    }
+
+    .feat {
+      background: var(--sf); padding: 32px;
+      text-align: left;
+    }
+
+    .feat-ico {
+      width: 44px; height: 44px; border-radius: 10px; background: var(--vdim);
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 20px;
+    }
+    .feat h4 { font-size: 15px; font-weight: 700; margin-bottom: 8px; }
+    .feat p  { font-size: 14px; color: var(--t2); line-height: 1.6; }
+
+    /* ── Pricing ── */
+    #precos { text-align: center; }
+
+    .precos-sub { color: var(--t2); max-width: 460px; margin: 14px auto 56px; }
+
+    .pricing-wrap { position: relative; }
+
+    .pricing-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 16px; max-width: 860px; margin: 0 auto;
+      filter: blur(1.5px); pointer-events: none; user-select: none;
+    }
+
+    .plan {
+      background: var(--sf); border: 1px solid var(--bd);
+      border-radius: var(--rlg); padding: 32px 28px; text-align: left;
+    }
+    .plan.hi { border-color: rgba(200,241,53,.25); }
+
+    .plan-name { font: 600 11px/1 'Space Grotesk'; letter-spacing:.07em; text-transform:uppercase; color:var(--t2); margin-bottom:10px; }
+    .plan-price { font: 700 38px/1 'Space Grotesk'; margin-bottom: 4px; }
+    .plan-price small { font-size:14px; font-weight:500; color:var(--t2); }
+    .plan-desc { font-size:13px; color:var(--t3); margin-bottom:24px; padding-bottom:24px; border-bottom:1px solid var(--bd); }
+
+    .plan-feats { list-style:none; display:flex; flex-direction:column; gap:10px; }
+    .plan-feats li { font-size:13px; color:var(--t2); display:flex; align-items:center; gap:8px; }
+    .plan-feats li::before { content:"✓"; color:var(--volt); font-weight:700; flex-shrink:0; }
+
+    .pricing-lock {
+      position: absolute; inset: 0;
+      display: flex; flex-direction:column; align-items:center; justify-content:center;
+      gap: 10px;
+    }
+    .pricing-lock p { font-size:14px; color:var(--t2); max-width:380px; text-align:center; line-height:1.5; }
+
+    /* ── CTA Final ── */
+    #lista { background: var(--bg2); }
+
+    .cta-box {
+      background: linear-gradient(135deg, var(--sf) 0%, rgba(200,241,53,.04) 100%);
+      border: 1px solid rgba(200,241,53,.15);
+      border-radius: 24px; padding: 72px 40px;
+      max-width: 640px; margin: 0 auto; text-align: center;
+    }
+    .cta-box h2 { font-size: clamp(26px, 4vw, 38px); margin: 20px 0 14px; }
+    .cta-box > p { color:var(--t2); margin-bottom: 36px; font-size:16px; line-height:1.6; }
+
+    .cta-form { display:flex; gap:8px; max-width:420px; margin:0 auto 14px; }
+    .cta-note { font-size:13px; color:var(--t3); }
+
+    /* ── Footer ── */
+    footer { border-top: 1px solid var(--bd); padding: 36px 24px; }
+
+    .foot-inner {
+      max-width: 1120px; margin: 0 auto;
+      display: flex; align-items: center; justify-content: space-between;
+      flex-wrap: wrap; gap: 20px;
+    }
+    .foot-left  { display:flex; align-items:center; gap:28px; }
+    .foot-links { display:flex; gap:20px; list-style:none; }
+    .foot-links a { font-size:13px; color:var(--t3); text-decoration:none; transition:color .15s; }
+    .foot-links a:hover { color:var(--t2); }
+    .foot-copy  { font-size:13px; color:var(--t3); }
+
+    /* ── Section headers ── */
+    .s-head { text-align:center; margin-bottom: 0; }
+    .s-title { font-size: clamp(28px, 4vw, 40px); font-weight:700; letter-spacing:-.015em; margin-top:16px; }
+
+    /* ── Animations ── */
+    @keyframes fadeUp {
+      from { opacity:0; transform:translateY(14px); }
+      to   { opacity:1; transform:translateY(0); }
+    }
+    @keyframes glow-pulse {
+      0%,100% { box-shadow: 0 0 0 0 rgba(200,241,53,0); }
+      50%      { box-shadow: 0 0 32px 4px rgba(200,241,53,.1); }
+    }
+
+    .au-0 { animation: fadeUp .5s .05s both; }
+    .au-1 { animation: fadeUp .5s .15s both; }
+    .au-2 { animation: fadeUp .5s .25s both; }
+    .au-3 { animation: fadeUp .5s .35s both; }
+    .au-4 { animation: fadeUp .5s .45s both; }
+
+    .pipe-step.active { animation: glow-pulse 3.5s ease-in-out infinite; }
+
+    /* ── Responsive ── */
+    @media (max-width: 860px) {
+      .steps { grid-template-columns: 1fr 1fr; }
+      .feat-grid { grid-template-columns: 1fr 1fr; }
+      .pricing-grid { grid-template-columns: 1fr; max-width: 420px; }
+      .prob-grid { grid-template-columns: 1fr; gap: 40px; }
+    }
+
+    @media (max-width: 600px) {
+      section { padding: 64px 0; }
+      .hero-form, .cta-form { flex-direction: column; }
+      .hero-form .btn-volt,
+      .cta-form  .btn-volt  { justify-content: center; }
+      .pipeline { flex-direction: column; border-radius: var(--r); }
+      .pipe-step { border-right: none; border-bottom: 1px solid var(--bd); flex-direction: row; text-align:left; gap:14px; align-items:center; }
+      .pipe-step:last-child { border-bottom: none; }
+      .steps { grid-template-columns: 1fr; }
+      .feat-grid { grid-template-columns: 1fr; }
+      .cta-box { padding: 48px 24px; }
+      .foot-left { flex-direction: column; align-items: flex-start; gap: 16px; }
+      .foot-inner { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ══ NAV ══════════════════════════════════════════════════════ -->
+<nav id="nav">
+  <div class="nav-inner">
+    <a href="#" class="nav-logo" aria-label="Sell Hunter">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="28" height="28" aria-hidden="true">
+        <path d="M6 0 L0 0 L0 6"  fill="none" stroke="#C8F135" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M18 0 L24 0 L24 6" fill="none" stroke="#C8F135" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M24 18 L24 24 L18 24" fill="none" stroke="#C8F135" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M0 18 L0 24 L6 24"  fill="none" stroke="#C8F135" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        <line x1="12" y1="8"  x2="12" y2="5"  stroke="#C8F135" stroke-width="1.2" stroke-linecap="round" opacity=".5"/>
+        <line x1="12" y1="16" x2="12" y2="19" stroke="#C8F135" stroke-width="1.2" stroke-linecap="round" opacity=".5"/>
+        <line x1="8"  y1="12" x2="5"  y2="12" stroke="#C8F135" stroke-width="1.2" stroke-linecap="round" opacity=".5"/>
+        <line x1="16" y1="12" x2="19" y2="12" stroke="#C8F135" stroke-width="1.2" stroke-linecap="round" opacity=".5"/>
+        <circle cx="12" cy="12" r="2.2" fill="#C8F135"/>
+      </svg>
+      <span class="nav-wm">Sell<span>Hunter</span></span>
+    </a>
+    <a href="#lista" class="btn btn-volt">Entrar na lista de espera</a>
+  </div>
+</nav>
+
+
+<!-- ══ HERO ═════════════════════════════════════════════════════ -->
+<section id="hero">
+  <div class="wrap">
+
+    <div class="au-0">
+      <span class="tag">TikTok Shop · Afiliados · Brasil</span>
+    </div>
+
+    <h1 class="hero-h1 au-1">
+      Do produto viral ao TikTok<br>em <span class="v">menos de 10 minutos.</span>
+    </h1>
+
+    <p class="hero-sub au-2">
+      Sell Hunter monitora tendências, baixa vídeos de referência, gera o vídeo com IA e publica no TikTok — tudo automatizado. Você só aprova.
+    </p>
+
+    <form class="hero-form au-3" onsubmit="onSubmit(event,this)">
+      <input type="email" name="email" placeholder="seu@email.com" required autocomplete="email">
+      <button type="submit" class="btn btn-volt btn-lg">Quero entrar na fila</button>
+    </form>
+    <p class="hero-note au-3">Sem spam. Acesso antecipado ao beta — lançamento previsto em 2027.</p>
+
+    <!-- Pipeline -->
+    <div class="pipeline-wrap au-4">
+      <div class="pipeline" role="list">
+
+        <div class="pipe-step" role="listitem">
+          <div class="pipe-ico" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#9AA4B2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
+            </svg>
+          </div>
+          <div>
+            <div class="pipe-name">Monitoramento</div>
+            <div class="pipe-desc">Produtos em tendência</div>
+          </div>
+        </div>
+
+        <div class="pipe-step" role="listitem">
+          <div class="pipe-ico" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#9AA4B2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+              <polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/>
+            </svg>
+          </div>
+          <div>
+            <div class="pipe-name">Download</div>
+            <div class="pipe-desc">Referências virais</div>
+          </div>
+        </div>
+
+        <div class="pipe-step active" role="listitem">
+          <div class="pipe-ico" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#C8F135" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polygon points="23 7 16 12 23 17 23 7"/>
+              <rect x="1" y="5" width="15" height="14" rx="2" ry="2"/>
+            </svg>
+          </div>
+          <div>
+            <div class="pipe-name">Geração IA</div>
+            <div class="pipe-desc">Higgsfield + VEO3</div>
+          </div>
+        </div>
+
+        <div class="pipe-step" role="listitem">
+          <div class="pipe-ico" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#9AA4B2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M9 11l3 3L22 4"/>
+              <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/>
+            </svg>
+          </div>
+          <div>
+            <div class="pipe-name">Aprovação</div>
+            <div class="pipe-desc">1 clique seu</div>
+          </div>
+        </div>
+
+        <div class="pipe-step done" role="listitem">
+          <div class="pipe-ico" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#3DD68C" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="20 6 9 17 4 12"/>
+            </svg>
+          </div>
+          <div>
+            <div class="pipe-name">Publicado</div>
+            <div class="pipe-desc">No TikTok Shop</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ══ PROBLEMA ══════════════════════════════════════════════════ -->
+<section id="problema">
+  <div class="wrap">
+    <div class="prob-grid">
+
+      <div class="tools-chaos">
+        <div class="tool-chip"><span class="tool-dot"></span>Kalodata</div>
+        <div class="tool-chip"><span class="tool-dot"></span>TikTok</div>
+        <div class="tool-chip"><span class="tool-dot"></span>Submic</div>
+        <div class="tool-chip"><span class="tool-dot"></span>Claude.ai</div>
+        <div class="tool-chip"><span class="tool-dot"></span>Higgsfield</div>
+        <div class="tool-chip dim">+ copiar e colar</div>
+        <div class="tool-chip dim">+ troca de abas</div>
+        <div class="tool-chip dim">+ repetir por produto</div>
+      </div>
+
+      <div>
+        <span class="tag">O problema</span>
+        <h3 class="prob-h3" style="margin-top:16px">5 ferramentas, horas perdidas — por vídeo.</h3>
+        <p class="prob-p">
+          Para criar um único vídeo de afiliado no TikTok Shop, você abre cinco ferramentas diferentes, copia e cola entre elas, e recomeça do zero a cada produto — mesmo que o processo seja idêntico.
+        </p>
+        <ul class="pain-list">
+          <li>Pesquisar tendências manualmente no Kalodata</li>
+          <li>Baixar o vídeo viral e transcrever no Submic</li>
+          <li>Criar a Skill no Claude para cada nicho</li>
+          <li>Gerar o vídeo no Higgsfield e publicar manualmente</li>
+          <li>Recomeçar tudo amanhã para o próximo produto</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ══ COMO FUNCIONA ══════════════════════════════════════════════ -->
+<section id="como">
+  <div class="wrap">
+    <div class="s-head">
+      <span class="tag">Como funciona</span>
+      <h2 class="s-title">Um pipeline. Zero troca de abas.</h2>
+    </div>
+
+    <div class="steps">
+
+      <div class="step">
+        <div class="step-num">01</div>
+        <div class="step-ico" aria-hidden="true">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#C8F135" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
+          </svg>
+        </div>
+        <h4>Monitore tendências</h4>
+        <p>Configure parâmetros de busca e deixe o Sell Hunter encontrar os produtos virais do TikTok Shop para você.</p>
+      </div>
+
+      <div class="step">
+        <div class="step-num">02</div>
+        <div class="step-ico" aria-hidden="true">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#C8F135" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polygon points="23 7 16 12 23 17 23 7"/>
+            <rect x="1" y="5" width="15" height="14" rx="2" ry="2"/>
+          </svg>
+        </div>
+        <h4>IA gera o vídeo</h4>
+        <p>O pipeline baixa a referência viral, aplica a Skill do nicho e gera o vídeo do produto via Higgsfield e VEO3.</p>
+      </div>
+
+      <div class="step">
+        <div class="step-num">03</div>
+        <div class="step-ico" aria-hidden="true">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#C8F135" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M9 11l3 3L22 4"/>
+            <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/>
+          </svg>
+        </div>
+        <h4>Aprove com 1 clique</h4>
+        <p>O vídeo aparece na sua fila. Revisou e gostou — Aprovar. Não gostou — Rejeitar e regenerar.</p>
+      </div>
+
+      <div class="step">
+        <div class="step-num">04</div>
+        <div class="step-ico" aria-hidden="true">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#C8F135" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 0 0-1.95 1.96A29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58A2.78 2.78 0 0 0 3.41 19.6C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.95A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/>
+            <polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" fill="#C8F135" stroke="none"/>
+          </svg>
+        </div>
+        <h4>Publicado no TikTok</h4>
+        <p>Sell Hunter publica automaticamente com descrição e hashtags otimizadas. Você acompanha no painel.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ══ FEATURES ══════════════════════════════════════════════════ -->
+<section id="features">
+  <div class="wrap">
+    <div class="s-head">
+      <span class="tag">Funcionalidades</span>
+      <h2 class="s-title">Tudo que você precisa, em um lugar.</h2>
+    </div>
+
+    <div class="feat-grid">
+
+      <div class="feat">
+        <div class="feat-ico" aria-hidden="true">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#C8F135" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
+          </svg>
+        </div>
+        <h4>Research de tendências</h4>
+        <p>Monitore produtos virais no TikTok Shop com filtros configuráveis de volume, crescimento e nicho.</p>
+      </div>
+
+      <div class="feat">
+        <div class="feat-ico" aria-hidden="true">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#C8F135" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+            <polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/>
+          </svg>
+        </div>
+        <h4>Download automático</h4>
+        <p>Baixa os melhores vídeos virais de referência e extrai a transcrição sem nenhuma ação manual.</p>
+      </div>
+
+      <div class="feat">
+        <div class="feat-ico" aria-hidden="true">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#C8F135" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polygon points="23 7 16 12 23 17 23 7"/>
+            <rect x="1" y="5" width="15" height="14" rx="2" ry="2"/>
+          </svg>
+        </div>
+        <h4>Geração de vídeo com IA</h4>
+        <p>Integração com Higgsfield e VEO3 para gerar vídeos de produto de alta qualidade a partir de uma foto.</p>
+      </div>
+
+      <div class="feat">
+        <div class="feat-ico" aria-hidden="true">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#C8F135" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/>
+            <rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/>
+          </svg>
+        </div>
+        <h4>Biblioteca de Skills</h4>
+        <p>Skills prontas por nicho — cozinha, calçados, b-roll e mais. Sem precisar criar do zero ou entender de IA.</p>
+      </div>
+
+      <div class="feat">
+        <div class="feat-ico" aria-hidden="true">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#C8F135" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 0 0-1.95 1.96A29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58A2.78 2.78 0 0 0 3.41 19.6C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.95A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/>
+            <polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" fill="#C8F135" stroke="none"/>
+          </svg>
+        </div>
+        <h4>Publicação automática</h4>
+        <p>Após a sua aprovação, o vídeo vai direto para o TikTok com descrição e hashtags geradas automaticamente.</p>
+      </div>
+
+      <div class="feat">
+        <div class="feat-ico" aria-hidden="true">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#C8F135" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="18" y1="20" x2="18" y2="10"/>
+            <line x1="12" y1="20" x2="12" y2="4"/>
+            <line x1="6"  y1="20" x2="6"  y2="14"/>
+          </svg>
+        </div>
+        <h4>Analytics de performance</h4>
+        <p>Acompanhe views, cliques e conversões de cada vídeo publicado diretamente no painel do Sell Hunter.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ══ PRICING TEASER ════════════════════════════════════════════ -->
+<section id="precos">
+  <div class="wrap">
+    <div class="s-head">
+      <span class="tag">Planos</span>
+      <h2 class="s-title">Preços revelados no lançamento.</h2>
+    </div>
+    <p class="precos-sub">Entre na lista de espera e garanta acesso antecipado com condições especiais de fundador.</p>
+
+    <div class="pricing-wrap">
+      <div class="pricing-grid" aria-hidden="true">
+
+        <div class="plan">
+          <div class="plan-name">Starter</div>
+          <div class="plan-price">R$ ??<small>/mês</small></div>
+          <div class="plan-desc">Para começar no TikTok Shop</div>
+          <ul class="plan-feats">
+            <li>Até 20 vídeos/mês</li>
+            <li>3 Skills de nicho</li>
+            <li>1 conta TikTok</li>
+            <li>Publicação automática</li>
+          </ul>
+        </div>
+
+        <div class="plan hi">
+          <div class="plan-name">Pro</div>
+          <div class="plan-price">R$ ??<small>/mês</small></div>
+          <div class="plan-desc">Para afiliados em escala</div>
+          <ul class="plan-feats">
+            <li>Até 80 vídeos/mês</li>
+            <li>Skills ilimitadas</li>
+            <li>3 contas TikTok</li>
+            <li>Analytics avançado</li>
+          </ul>
+        </div>
+
+        <div class="plan">
+          <div class="plan-name">Scale</div>
+          <div class="plan-price">R$ ??<small>/mês</small></div>
+          <div class="plan-desc">Volume máximo</div>
+          <ul class="plan-feats">
+            <li>Vídeos ilimitados</li>
+            <li>Skills customizadas</li>
+            <li>Contas ilimitadas</li>
+            <li>Suporte prioritário</li>
+          </ul>
+        </div>
+
+      </div>
+
+      <div class="pricing-lock">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#5C6675" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
+          <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+        </svg>
+        <p>Valores anunciados próximos ao lançamento.<br>Fundadores na lista terão acesso antecipado.</p>
+        <a href="#lista" class="btn btn-outline" style="margin-top:4px">Garantir minha vaga</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ══ CTA FINAL ═════════════════════════════════════════════════ -->
+<section id="lista">
+  <div class="wrap">
+    <div class="cta-box">
+      <span class="tag">Acesso antecipado</span>
+      <h2>Pronto para parar de alternar entre ferramentas?</h2>
+      <p>Entre na lista de espera e seja o primeiro a acessar o Sell Hunter quando o beta abrir. Os primeiros inscritos terão condições especiais de fundador.</p>
+
+      <form class="cta-form" onsubmit="onSubmit(event,this)">
+        <input type="email" name="email" placeholder="seu@email.com" required autocomplete="email">
+        <button type="submit" class="btn btn-volt btn-lg">Garantir minha vaga</button>
+      </form>
+      <p class="cta-note">Sem spam. Beta previsto para 2027.</p>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══ FOOTER ════════════════════════════════════════════════════ -->
+<footer>
+  <div class="foot-inner">
+
+    <div class="foot-left">
+      <a href="#" class="nav-logo" aria-label="Sell Hunter">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="22" height="22" aria-hidden="true">
+          <path d="M6 0 L0 0 L0 6"  fill="none" stroke="#C8F135" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M18 0 L24 0 L24 6" fill="none" stroke="#C8F135" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M24 18 L24 24 L18 24" fill="none" stroke="#C8F135" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M0 18 L0 24 L6 24"  fill="none" stroke="#C8F135" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <circle cx="12" cy="12" r="2" fill="#C8F135"/>
+        </svg>
+        <span class="nav-wm" style="font-size:15px">Sell<span>Hunter</span></span>
+      </a>
+
+      <ul class="foot-links">
+        <li><a href="/privacidade">Privacidade</a></li>
+        <li><a href="/termos">Termos de uso</a></li>
+        <li><a href="mailto:contato@sellhunter.com.br">Contato</a></li>
+      </ul>
+    </div>
+
+    <span class="foot-copy">© 2026 Sell Hunter. Todos os direitos reservados.</span>
+  </div>
+</footer>
+
+
+<script>
+  // Waitlist form
+  function onSubmit(e, form) {
+    e.preventDefault();
+    const email = form.querySelector('input[type="email"]').value;
+    const btn   = form.querySelector('button[type="submit"]');
+
+    btn.textContent = '✓ Na lista!';
+    btn.style.background = '#3DD68C';
+    btn.disabled = true;
+    form.querySelector('input').disabled = true;
+
+    // TODO: replace with your email service (Brevo, Mailchimp, Resend, etc.)
+    // fetch('/api/waitlist', {
+    //   method: 'POST',
+    //   headers: { 'Content-Type': 'application/json' },
+    //   body: JSON.stringify({ email })
+    // });
+    console.log('[Waitlist]', email);
+  }
+
+  // Navbar border on scroll
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => {
+    nav.style.borderBottomColor = window.scrollY > 20
+      ? 'rgba(38,45,58,.9)'
+      : 'rgba(38,45,58,.5)';
+  }, { passive: true });
+</script>
+
+</body>
+</html>
