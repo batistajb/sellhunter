@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Privacidade — Sell Hunter</title>
-  <meta name="description" content="Como o site do Sell Hunter trata dados pessoais na página de lista de espera.">
+  <meta name="description" content="Como o Sell Hunter trata dados pessoais no site, na lista de espera e na conexão com o TikTok Shop.">
   <meta name="robots" content="index, follow">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -13,7 +13,7 @@
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
     :root {
       --bg: #05070A; --sf: #12151C; --bd: #262D3A;
-      --tx: #F2F5F9; --t2: #9AA4B2; --t3: #5C6675;
+      --tx: #F2F5F9; --t2: #9AA4B2; --t3: #8B97A8;
       --volt: #C8F135; --onv: #0A0C10;
     }
     html { scroll-behavior: smooth; }
@@ -49,8 +49,14 @@
       letter-spacing: .07em; text-transform: uppercase; color: var(--volt);
     }
     h1 { font-size: clamp(32px, 5vw, 44px); margin: 14px 0 12px; letter-spacing: -.02em; }
-    .updated { color: var(--t3); font-size: 14px; margin-bottom: 36px; }
+    .updated { color: var(--t3); font-size: 14px; margin-bottom: 28px; }
     h2 { font-size: 20px; margin: 36px 0 10px; }
+    .summary {
+      background: var(--sf); border: 1px solid var(--bd); border-radius: 12px;
+      padding: 18px 20px 8px; margin-bottom: 8px;
+    }
+    .summary h2 { margin: 0 0 10px; font-size: 16px; }
+    .summary p, .summary li { font-size: 15px; }
     p, li { color: var(--t2); }
     p + p { margin-top: 12px; }
     ul { margin: 12px 0 0 1.2em; }
@@ -87,40 +93,95 @@
   <main>
     <p class="kicker">Privacidade</p>
     <h1>Política de privacidade</h1>
-    <p class="updated">Vigente a partir de 12 de novembro de 2026.</p>
+    <p class="updated">Vigente a partir de 14 de novembro de 2026.</p>
 
-    <p>Esta política descreve o que o site do Sell Hunter faz com dados pessoais. Ela vale para esta página de apresentação e para a lista de espera. O produto em si ainda não está disponível.</p>
+    <p>Esta política vale para o site, para a lista de espera e para o serviço Sell Hunter quando um afiliado criar conta e conectar o TikTok Shop. Hoje o site público só pede o e-mail da lista. O serviço ainda não está aberto. As regras do serviço passam a valer no momento em que a conta existir.</p>
+
+    <div class="summary">
+      <h2>Summary</h2>
+      <p>Sell Hunter operates from Brazil. The data protection contact is <a href="mailto:contato@batistajb.com">contato@batistajb.com</a>.</p>
+      <p>The public site currently stores only a waiting-list email, after consent. When a seller opens an account, Sell Hunter stores the name, the email, a bcrypt password hash, TikTok OAuth tokens and account identifiers, service logs, and a payment reference. Card numbers are not stored.</p>
+      <p>Production personal data, including TikTok tokens, is stored in Brazil. Tokens are not sent to the video-generation provider. They are deleted the same day the seller disconnects the account. Other customer personal data is deleted within 30 days after the contract ends, except records that tax law requires Sell Hunter to keep.</p>
+      <p>A request from the seller, the user, or TikTok Shop to access, correct, or delete data is answered within 15 days. A confirmed incident that involves TikTok Shop data is reported to TikTok within 24 hours. The Brazilian data protection authority is notified within 72 hours when the law requires it.</p>
+    </div>
 
     <h2>Quem é o responsável</h2>
-    <p>O site é operado sob o nome Sell Hunter. O canal de contato para assuntos de privacidade é <a href="mailto:contato@sellhunter.com.br">contato@sellhunter.com.br</a>.</p>
-    <p>Não há, nesta página, cadastro de conta, pagamento nem área logada.</p>
+    <p>O Sell Hunter opera no Brasil. O encarregado pelo tratamento de dados pessoais é o contato <a href="mailto:contato@batistajb.com">contato@batistajb.com</a>. O contato geral do site é <a href="mailto:contato@sellhunter.com.br">contato@sellhunter.com.br</a>.</p>
+    <p>Pedidos de acesso, correção ou exclusão, e avisos de incidente com dados pessoais, vão para o encarregado.</p>
 
-    <h2>O que esta página pede</h2>
-    <p>O único dado que o formulário pede é o e-mail, para avisar sobre o acesso antecipado ao beta.</p>
-    <p>Nesta versão publicada, esse e-mail não é enviado a um servidor do Sell Hunter. O envio fica no navegador e não entra numa lista. Quando a captura passar a gravar o endereço, esta política será atualizada antes disso.</p>
+    <h2>O que o site pede hoje</h2>
+    <p>O formulário pede o e-mail e o aceite desta política. Sem o aceite, o endereço não é enviado. Não há, nesta página, cadastro de conta, pagamento nem área logada.</p>
+    <p>O e-mail vai para a API do Sell Hunter e fica na lista de espera. A base legal é o consentimento (art. 7º, I, da Lei nº 13.709/2018). O registro só existe depois que a caixa de aceite é marcada. Entrar na lista não cria conta, não reserva vaga e não fecha preço.</p>
+    <p>O e-mail serve só para avisar a abertura do beta e as condições de acesso antecipado. Não é vendido nem entra em lista de terceiros.</p>
 
     <h2>Dados tratados por quem hospeda a página</h2>
-    <p>O site é um conjunto de arquivos estáticos. Ao abri-lo, o seu navegador fala com:</p>
+    <p>Ao abrir a página, o navegador fala com:</p>
     <ul>
       <li>o serviço que hospeda a página, que pode registrar o endereço IP e dados técnicos da conexão para entregar o arquivo e proteger o serviço;</li>
+      <li>a API do Sell Hunter, no momento do envio do formulário;</li>
       <li>o Google Fonts, de onde vêm as fontes Inter e Space Grotesk. Esse pedido pode incluir o endereço IP e o identificador do navegador, tratados pelo Google conforme a política dele.</li>
     </ul>
-    <p>O Sell Hunter não coloca ferramenta de analytics, pixel de anúncio nem cookie próprio nesta página.</p>
+    <p>O Sell Hunter não coloca ferramenta de analytics, pixel de anúncio nem cookie próprio nesta página. O endereço IP do envio não entra na lista: o que fica gravado é o e-mail e a data do aceite.</p>
 
-    <h2>Para que serviria o e-mail</h2>
-    <p>Quando a lista de espera passar a ser gravada, o e-mail será usado só para avisar sobre a abertura do beta e sobre condições de acesso antecipado. Não será vendido nem usado para uma lista de terceiros.</p>
+    <h2>O que o serviço trata</h2>
+    <p>Quando o afiliado criar conta e conectar o TikTok Shop, o Sell Hunter trata só o que o serviço precisa:</p>
+    <ul>
+      <li>nome, e-mail e senha guardada apenas como hash bcrypt;</li>
+      <li>tokens OAuth, identificador e nome de usuário da conta TikTok, para publicar pelo API oficial o que o afiliado aprovar;</li>
+      <li>registros de uso: endereço IP, dados do navegador e o histórico de vídeos gerados, aprovados e publicados;</li>
+      <li>uma referência de pagamento. O número do cartão fica com o provedor de pagamento e não é gravado pelo Sell Hunter.</li>
+    </ul>
+    <p>O Sell Hunter não pede dado sensível e não vende dado pessoal. Os escopos pedidos ao TikTok ficam limitados ao que a publicação exige.</p>
+
+    <h2>Para que serve cada dado</h2>
+    <ul>
+      <li>avisar a abertura do beta: consentimento;</li>
+      <li>criar a conta e publicar no TikTok Shop a pedido do afiliado: execução de contrato;</li>
+      <li>cobrar a assinatura: execução de contrato;</li>
+      <li>proteger o serviço e investigar incidente: legítimo interesse;</li>
+      <li>guardar o que a lei fiscal exigir: obrigação legal.</li>
+    </ul>
+
+    <h2>Com quem os dados são compartilhados</h2>
+    <ul>
+      <li>a infraestrutura de produção, com os dados pessoais gravados no Brasil;</li>
+      <li>o TikTok, pelo API oficial, para ler o que o afiliado autorizou e publicar o vídeo aprovado;</li>
+      <li>o provedor de geração de vídeo, que recebe o material do produto e não recebe token nem identificador da conta TikTok;</li>
+      <li>o provedor de pagamento, que processa a cobrança.</li>
+    </ul>
+    <p>Um prestador usa o dado só para a tarefa contratada. O Sell Hunter não autoriza uso de dado do TikTok Shop para marketing desse prestador.</p>
+
+    <h2>Onde os dados ficam</h2>
+    <p>Os dados pessoais de produção, inclusive os tokens e os identificadores do TikTok, ficam armazenados no Brasil. O token é criptografado antes de ser gravado e não é enviado ao provedor de geração de vídeo.</p>
 
     <h2>Por quanto tempo</h2>
-    <p>Enquanto o formulário não transmitir o e-mail, o Sell Hunter não o armazena. Registros técnicos do hospedeiro seguem o prazo dele, fora do controle desta página.</p>
+    <ul>
+      <li>o e-mail da lista fica até a pessoa retirar o consentimento, ou enquanto a lista for usada para o acesso antecipado;</li>
+      <li>os dados da conta ficam enquanto a conta estiver aberta;</li>
+      <li>os tokens do TikTok são apagados no mesmo dia em que o afiliado desconecta a conta ou a autorização acaba;</li>
+      <li>no fim do contrato, os dados pessoais do cliente são apagados em até 30 dias, salvo o registro que a lei fiscal obriga a guardar;</li>
+      <li>logs de segurança ficam por 12 meses.</li>
+    </ul>
+    <p>Registros técnicos de quem hospeda a página seguem o prazo desse serviço.</p>
 
-    <h2>Seus direitos</h2>
-    <p>A Lei Geral de Proteção de Dados (Lei nº 13.709/2018) garante, entre outros, confirmação de tratamento, acesso, correção, anonimização, portabilidade, eliminação e informação sobre compartilhamento. Para exercer um desses direitos, escreva para <a href="mailto:contato@sellhunter.com.br">contato@sellhunter.com.br</a>.</p>
+    <h2>Pedidos do titular, do vendedor e da TikTok Shop</h2>
+    <p>A Lei nº 13.709/2018 garante, entre outros, confirmação de tratamento, acesso, correção, anonimização, portabilidade, eliminação e informação sobre compartilhamento.</p>
+    <p>O afiliado, o usuário ou a TikTok Shop pode pedir acesso, correção, exportação ou exclusão pelo e-mail <a href="mailto:contato@batistajb.com">contato@batistajb.com</a>. A resposta sai em até 15 dias. A desconexão da conta TikTok apaga os tokens no mesmo dia, sem esperar esse prazo.</p>
+    <p>Também é possível reclamar à ANPD, em <a href="https://www.gov.br/anpd">www.gov.br/anpd</a>.</p>
+
+    <h2>Se houver um incidente</h2>
+    <p>Um incidente com dado pessoal é avisado ao encarregado em <a href="mailto:contato@batistajb.com">contato@batistajb.com</a>, com o assunto começando por [INCIDENTE].</p>
+    <ul>
+      <li>se o dado obtido pelo API do TikTok Shop estiver envolvido, a TikTok é avisada em até 24 horas depois da confirmação;</li>
+      <li>quem puder ser prejudicado é avisado sem demora injustificada;</li>
+      <li>a ANPD é avisada em até 72 horas quando o art. 48 da Lei nº 13.709/2018 exigir.</li>
+    </ul>
 
     <h2>Crianças e adolescentes</h2>
-    <p>O site fala com afiliados adultos do TikTok Shop. Não é dirigido a menores de 18 anos e não pede dados de crianças.</p>
+    <p>O Sell Hunter fala com afiliados adultos do TikTok Shop. Não é dirigido a menores de 18 anos e não pede dados de crianças.</p>
 
     <h2>Mudanças</h2>
-    <p>Se a forma de tratar dados mudar — em especial quando o e-mail da lista passar a ser gravado — o texto desta página será atualizado, com a nova data no topo.</p>
+    <p>Esta política é revista pelo menos uma vez por ano, e também quando mudam os dados tratados, os prestadores ou os prazos. A data vigente fica no topo da página.</p>
   </main>
 
   <footer>
